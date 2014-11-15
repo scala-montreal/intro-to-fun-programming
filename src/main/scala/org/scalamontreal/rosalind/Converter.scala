@@ -12,6 +12,8 @@ object Converter {
    *   The function signature could look like {{{
    *   def dnaToRna(dna: DNAString): RNAString
    *   }}}
+   * - What if we wanted to convert only the part of the DNA string that we need. How could we convert lazily as the
+   *   client code 'reads' the RNA string?
    */
   def dnaToRna(dna: String): String = {
     dna.map((c: Char) => {
