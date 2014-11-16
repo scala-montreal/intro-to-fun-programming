@@ -35,7 +35,7 @@ object EssentialFP {
   addAsVal(1, 2)
 
   // they can be passed as arguments to other functions
-  // (Int) => Int is the type of a function that takes a Int and returns an Int
+  // (Int) => Int is the type of a function that takes an Int and returns an Int
   def applyFunction(value: Int, f: (Int) => Int): Int = {
     f(value)
   }
