@@ -9,12 +9,16 @@ object EssentialFP {
   val title: String = "Essential Scala"
   val anotherTitle = "Type annotation can be omitted, the compiler will infer it."
 
-  //conditionals
+  // conditionals
   if(title.isEmpty) {
     //
   } else {
     //
   }
+
+  // conditionals (and almost everything else) are expressions: they 'return' a value
+  // this is equivalent to Java's "ternary" operator
+  val emptiness = if(title.nonEmpty) "not empty" else "empty"
 
   // define a function using the 'def' keyword
   // annotated the type of each parameter and of the return value
