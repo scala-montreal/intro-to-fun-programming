@@ -9,28 +9,40 @@ object EssentialFP {
   val title: String = "Essential Scala"
   val anotherTitle = "Type annotation can be omitted, the compiler will infer it."
 
-  //conditionals
+  // conditionals
   if(title.isEmpty) {
     //
   } else {
     //
   }
 
+  // conditionals (and almost everything else) are expressions: they 'return' a value
+  // this is equivalent to Java's "ternary" operator
+  val emptiness = if(title.nonEmpty) "not empty" else "empty"
+
   // define a function using the 'def' keyword
   // annotated the type of each parameter and of the return value
   // don't forget the '='
-  def add(operand1: Int, operand2: Int) : Int = {
+  def add(operand1: Int, operand2: Int): Int = {
     // you don't need an explicit return
     // the result of the last expression is the value returned by the function
     operand1 + operand2
   }
   add(1, 2)
 
-  // functions are objects and can be passed to functions
-  // (Int) => Int is the type of a function that takes a Int and returns a Int
+  // functions are objects and can be assigned to vals
+  val addAsVal = (o1: Int, o2: Int) => o1 + o2
+  addAsVal(1, 2)
+
+  // they can be passed as arguments to other functions
+  // (Int) => Int is the type of a function that takes a Int and returns an Int
   def applyFunction(value: Int, f: (Int) => Int): Int = {
     f(value)
   }
+  val timesThree = (v: Int) => v * 3
+  applyFunction(3, timesThree)
+
+  // functions can be anonymous
   applyFunction(3, (v: Int) => v * 3)
 
   // functions can build functions
@@ -61,7 +73,7 @@ object EssentialFP {
     // by default attributes and methods define in the class body have 'public' access
     private val awesomeness: Int = bitterness * 2
 
-    // class need to override abstract members of be 'abstract'
+    // class need to override abstract members or be 'abstract'
     override def name: String = "spartan"
   }
   val myApple = new Spartan(2)
@@ -81,13 +93,14 @@ object EssentialFP {
   val JohnAge = john.age
 
   // case classes can be deconstructed to extract attributes
-  val User(name, age) = john
+  val User(johnName, johnAge) = john
 
   // 'match' can be used for pattern matching
-  // Any is the root of all classes (think Java Object)
+  // Any is the root of all classes and primitives (super class of Java Object and int, long, etc.)
   def matching(p: Any) = {
     p match {
       case "a" => // matching on value
+      case 42 => // matching a primitive
       case a: Apples => a.name // matching on type
       case User(n, a) if a > 10 => // matching on structure with condition
       case _ => // matches all
@@ -133,6 +146,14 @@ object EssentialFP {
   //collections have many useful methods check the doc
   l.filter((v: Int) => v < 2)
   l.map((v: Int) => v * 2)
+
+  // the compiler already knows that l is a List of Int
+  // So you don't need to repeat yourself
+  l.map(v => v * 2) // still a List[Int]
+
+  // It will also infer the type of the resulting List
+  l.map(v => v * 2.0) // List[Double]
+  l.map(v => v > 4) // List[Boolean]
 
   //for each item in 'l' then for each element in 's' generate the product
   for(i <- l; e <- s) yield i * e
