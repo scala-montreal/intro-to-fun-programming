@@ -23,18 +23,26 @@ object EssentialFP {
   // define a function using the 'def' keyword
   // annotated the type of each parameter and of the return value
   // don't forget the '='
-  def add(operand1: Int, operand2: Int) : Int = {
+  def add(operand1: Int, operand2: Int): Int = {
     // you don't need an explicit return
     // the result of the last expression is the value returned by the function
     operand1 + operand2
   }
   add(1, 2)
 
-  // functions are objects and can be passed to functions
-  // (Int) => Int is the type of a function that takes a Int and returns a Int
+  // functions are objects and can be assigned to vals
+  val addAsVal = (o1: Int, o2: Int) => o1 + o2
+  addAsVal(1, 2)
+
+  // they can be passed as arguments to other functions
+  // (Int) => Int is the type of a function that takes a Int and returns an Int
   def applyFunction(value: Int, f: (Int) => Int): Int = {
     f(value)
   }
+  val timesThree = (v: Int) => v * 3
+  applyFunction(3, timesThree)
+
+  // functions can be anonymous
   applyFunction(3, (v: Int) => v * 3)
 
   // functions can build functions
