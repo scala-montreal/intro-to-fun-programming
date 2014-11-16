@@ -147,6 +147,14 @@ object EssentialFP {
   l.filter((v: Int) => v < 2)
   l.map((v: Int) => v * 2)
 
+  // the compiler already knows that l is a List of Int
+  // So you don't need to repeat yourself
+  l.map(v => v * 2) // still a List[Int]
+
+  // It will also infer the type of the resulting List
+  l.map(v => v * 2.0) // List[Double]
+  l.map(v => v > 4) // List[Boolean]
+
   //for each item in 'l' then for each element in 's' generate the product
   for(i <- l; e <- s) yield i * e
 
