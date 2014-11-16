@@ -73,7 +73,7 @@ object EssentialFP {
     // by default attributes and methods define in the class body have 'public' access
     private val awesomeness: Int = bitterness * 2
 
-    // class need to override abstract members of be 'abstract'
+    // class need to override abstract members or be 'abstract'
     override def name: String = "spartan"
   }
   val myApple = new Spartan(2)
@@ -93,13 +93,14 @@ object EssentialFP {
   val JohnAge = john.age
 
   // case classes can be deconstructed to extract attributes
-  val User(name, age) = john
+  val User(johnName, johnAge) = john
 
   // 'match' can be used for pattern matching
-  // Any is the root of all classes (think Java Object)
+  // Any is the root of all classes and primitives (super class of Java Object and int, long, etc.)
   def matching(p: Any) = {
     p match {
       case "a" => // matching on value
+      case 42 => // matching a primitive
       case a: Apples => a.name // matching on type
       case User(n, a) if a > 10 => // matching on structure with condition
       case _ => // matches all
