@@ -49,16 +49,20 @@ Project Structure
               /cheatsheet
                 /EssentialFP.scala - Minimal Scala syntax cheat-sheet for FP related features
               /rosalind
-                /Converter.scala - Solution example for the [DNA to RNA problem on Rosalind](http://rosalind.info/problems/rna/)
+                /Converter.scala - Solution example and possible method signatures for conversion problems.
+                /Counter.scala - Possible method signatures for counting problems
       /test
         /scala
           /org
             /scalamontreal
               /rosalind
                 /TestConverter.scala - Tests for Converter.scala
+                /TestCounter.scala - Tests for Counter.scala
 
 Instructions
 ------------
 
 For the hands-on part of the meetup, using FP techniques, you can try to solve problems from the [Rosalind problem database](http://rosalind.info/problems/list-view/).
 You can also revisit the example solution in Converter.scala and try to address some of the solution shortcomings.
+
+I recommend solving all of the suggested problems first and then have a shot at the *FURTHER EXPLORATION* sections.
