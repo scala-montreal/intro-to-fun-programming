@@ -20,9 +20,9 @@ class TestConverter extends FunSuite {
   }
 
   test("should convert RNA string to a protein string") {
-    val dna = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
-    val reverseComplement = Converter.reverseComplement(dna)
-    assert(reverseComplement == "MAMAPRTEINSTRING")
+    val rna = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
+    val proteinString = Converter.rnaToProtein(rna)
+    assert(proteinString == "MAMAPRTEINSTRING")
   }
 
 }
