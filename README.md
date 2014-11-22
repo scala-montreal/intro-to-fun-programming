@@ -62,6 +62,8 @@ Project Structure
 Instructions
 ------------
 
+The slides from the first part of the meetup can be found [here](http://www.slideshare.net/felixtrepanier/intro-to-functional-programming-scala-montreal).
+
 For the hands-on part of the meetup, using FP techniques, you can try to solve problems from the [Rosalind problem database](http://rosalind.info/problems/list-view/).
 You can also revisit the example solution in Converter.scala and try to address some of the solution shortcomings.
 
